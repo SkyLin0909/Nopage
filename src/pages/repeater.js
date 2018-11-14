@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Card } from 'antd';
-import { Form, Select, FormItem, TableRepeater, FormCore, InlineRepeater, InputNumber } from 'antd-noform';
+import { Form, Select, FormItem, TableRepeater, FormCore, InlineRepeater, InputNumber, If, Input } from 'antd-noform';
 import { Page, ProdcutPicker } from 'components';
 
 const { Option } = Select;
@@ -86,6 +86,14 @@ export default class extends PureComponent {
                 <FormItem label="优惠门槛" name="activityThresholdPrice" prefix='满' suffix='元' defaultMinWidth={false}>
                   <InputNumber width={{ width: 50 }} min={1} precision={2} />
                 </FormItem>
+                <If when={(values) => {
+                  return values.activityThresholdPrice > 10
+                }}
+                >
+                  <FormItem label="测试" name="test">
+                    <Input />
+                  </FormItem>
+                </If>
                 <FormItem name='giveSkuList' label='赠送商品'>
                   <TableRepeater {...tableRepeaterProps}>
                     <FormItem label="选择商品" name="commodityId" size='small'>
@@ -104,7 +112,7 @@ export default class extends PureComponent {
                           <Select
                             value={values.specId}
                             onSelect={(a) => {onSelect(a)}}
-                            status={core.getStatus('specId')}
+                            status={core.status.specId}
                           >
                             {specList.map(i => (
                               <Option key={i.specId} value={i.specId}>
