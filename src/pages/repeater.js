@@ -83,8 +83,8 @@ export default class extends PureComponent {
                   status='preview'
                   renderCell={(_, { index: order }) => <span>{order + 1}</span>}
                 />
-                <FormItem label="优惠门槛" name="activityThresholdPrice" prefix='满' suffix='元'>
-                  <InputNumber size='small' min={0} precision={0} />
+                <FormItem label="优惠门槛" name="activityThresholdPrice" prefix='满' suffix='元' defaultMinWidth={false}>
+                  <InputNumber width={{ width: 50 }} min={1} precision={2} />
                 </FormItem>
                 <FormItem name='giveSkuList' label='赠送商品'>
                   <TableRepeater {...tableRepeaterProps}>
@@ -104,6 +104,7 @@ export default class extends PureComponent {
                           <Select
                             value={values.specId}
                             onSelect={(a) => {onSelect(a)}}
+                            status={core.status.specId}
                           >
                             {specList.map(i => (
                               <Option key={i.specId} value={i.specId}>
