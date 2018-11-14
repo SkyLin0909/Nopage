@@ -104,7 +104,7 @@ export default class extends PureComponent {
                           <Select
                             value={values.specId}
                             onSelect={(a) => {onSelect(a)}}
-                            status={core.status.specId}
+                            status={core.getStatus('specId')}
                           >
                             {specList.map(i => (
                               <Option key={i.specId} value={i.specId}>

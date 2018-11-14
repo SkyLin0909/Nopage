@@ -21,7 +21,7 @@ export default class ProductPicker extends PureComponent {
     const { commodityId } = JSON.parse(value) || {};
     return (
       <Select
-        disabled={status === 'preview'}
+        status={status}
         allowClear
         value={commodityId}
         showSearch
