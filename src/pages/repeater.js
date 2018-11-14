@@ -41,9 +41,6 @@ const tableRepeaterProps = {
       specId: { required: true, message: '填写选择商品规格'},
     },
     autoValidate: true,
-    onChange: (changeKeys, value, core) => {
-      console.log(changeKeys, value, core);
-    },
   },
   dialogConfig: {
     width: 1000,
@@ -102,8 +99,10 @@ export default class extends PureComponent {
                         const data = JSON.parse(values.commodityId) || {};
                         const { specList = []} = data;
                         const onSelect = (value) => {core.setValue('specId', value)};
+
                         return (
                           <Select
+                            value={values.specId}
                             onSelect={(a) => {onSelect(a)}}
                           >
                             {specList.map(i => (
