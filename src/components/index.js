@@ -4,5 +4,6 @@ export { default as GlobalHeader } from './GlobalHeader';
 export { default as Image } from './Image';
 export { default as Page } from './Page';
 export { default as PageTable } from './PageTable';
+export { default as ProdcutPicker } from './ProdcutPicker';
 export { default as SliderMenu } from './SliderMenu';
 export { default as StandardTable } from './StandardTable';

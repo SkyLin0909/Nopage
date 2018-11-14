@@ -10,6 +10,7 @@ export default {
     menu: [],
     authority: {
       '/': {},
+      '/repeater': {},
     },
     currentUser: {
       name: '',

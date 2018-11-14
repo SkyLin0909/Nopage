@@ -149,7 +149,7 @@ class PageTable extends PureComponent {
       : null;
 
     // eslint-disable-next-line
-    const { render, rangeTimeKeys, timeKeys, ...rest } = form || {};
+    // const { render, rangeTimeKeys, timeKeys, ...rest } = form || {};
 
     return (
       <Page title={title}>
@@ -177,7 +177,7 @@ class PageTable extends PureComponent {
             </div>
           )}
           {form && (
-            <Form core={this.form} direction="horizontal" {...rest}>
+            <Form core={this.form} direction="horizontal">
               {isValidElement(form) ? form : form.render(this.form) || ''}
               <div className="searchBtn">
                 <Button type="primary" onClick={this.onSearch}>
